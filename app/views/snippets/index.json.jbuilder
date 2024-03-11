@@ -1,1 +1,1 @@
-json.array! @snippets, partial: "snippets/snippet", as: :snippet
+json.array! @snippets, partial: 'snippets/snippet', as: :snippet
