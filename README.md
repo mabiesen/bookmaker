@@ -7,3 +7,5 @@ Basic rails app to assist with book-related work: storing/retrieving notes, pict
 Rails 7.1.3.2
 
 Ruby 3.0.2
+
+## Features
