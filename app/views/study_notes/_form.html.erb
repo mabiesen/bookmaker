@@ -1,32 +1,32 @@
-<%= form_with(model: study_note) do |form| %>
-  <% if study_note.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(study_note.errors.count, "error") %> prohibited this study_note from being saved:</h2>
+  <%= form_with(model: study_note) do |form| %>
+    <% if study_note.errors.any? %>
+      <div style="color: red">
+        <h2><%= pluralize(study_note.errors.count, "error") %> prohibited this study_note from being saved:</h2>
 
-      <ul>
-        <% study_note.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+        <ul>
+          <% study_note.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="mt-4">
+      <%= form.label :study_book_id, class: "form-label" %>
+      <%= form.collection_select :study_book_id, StudyBook.order(:title), :id, :title, class: "form-control" %>
+    </div>
+
+    <div class="mt-4">
+      <%= form.label :page_number, style: "display: block", class: "form-label" %>
+      <%= form.number_field :page_number, class: "form-control" %>
+    </div>
+
+    <div class="mt-4">
+      <%= form.label :note_text, style: "display: block", class: "form-label" %>
+      <%= form.text_area :note_text, class: "form-control" %>
+    </div>
+
+    <div class="mt-4">
+      <%= form.submit %>
     </div>
   <% end %>
-
-  <div>
-    <%= form.label :study_book_id %>
-    <%= form.collection_select :study_book_id, StudyBook.order(:title), :id, :title %>
-  </div>
-
-  <div>
-    <%= form.label :page_number, style: "display: block" %>
-    <%= form.number_field :page_number %>
-  </div>
-
-  <div>
-    <%= form.label :note_text, style: "display: block" %>
-    <%= form.text_area :note_text %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
