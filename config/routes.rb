@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :study_books
+  resources :study_authors
   resources :snippets
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

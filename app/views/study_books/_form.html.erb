@@ -1,0 +1,42 @@
+<%= form_with(model: study_book) do |form| %>
+  <% if study_book.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(study_book.errors.count, "error") %> prohibited this study_book from being saved:</h2>
+
+      <ul>
+        <% study_book.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :study_author_ids %>
+    <%= form.collection_select :study_author_ids, StudyAuthor.order(:last_name), :id, :fullname, multiple: true %>
+  </div>
+
+  <div>
+    <%= form.label :title, style: "display: block" %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div>
+    <%= form.label :summary, style: "display: block" %>
+    <%= form.text_area :summary %>
+  </div>
+
+  <div>
+    <%= form.label :number_of_pages, style: "display: block" %>
+    <%= form.number_field :number_of_pages %>
+  </div>
+
+  <div>
+    <%= form.label :completed, style: "display: block" %>
+    <%= form.check_box :completed %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

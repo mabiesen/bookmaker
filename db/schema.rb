@@ -10,9 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_11_205757) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_12_210148) do
   create_table "snippets", force: :cascade do |t|
     t.text "note"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "study_authors", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "study_authors_books", id: false, force: :cascade do |t|
+    t.integer "study_author_id", null: false
+    t.integer "study_book_id", null: false
+  end
+
+  create_table "study_books", force: :cascade do |t|
+    t.string "title"
+    t.text "summary"
+    t.integer "number_of_pages"
+    t.boolean "completed"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

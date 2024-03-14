@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Study books</h1>
+
+<div id="study_books">
+  <% @study_books.each do |study_book| %>
+    <%= render study_book %>
+    <p>
+      <%= link_to "Show this study book", study_book %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New study book", new_study_book_path %>
