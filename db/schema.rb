@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_12_210148) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_14_190930) do
   create_table "snippets", force: :cascade do |t|
     t.text "note"
     t.datetime "created_at", null: false
@@ -22,6 +22,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_12_210148) do
     t.string "last_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["first_name", "last_name"], name: "index_study_authors_on_first_name_and_last_name", unique: true
   end
 
   create_table "study_authors_books", id: false, force: :cascade do |t|
@@ -38,4 +39,14 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_12_210148) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "study_notes", force: :cascade do |t|
+    t.integer "study_book_id", null: false
+    t.integer "page_number"
+    t.text "note_text"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["study_book_id"], name: "index_study_notes_on_study_book_id"
+  end
+
+  add_foreign_key "study_notes", "study_books"
 end
