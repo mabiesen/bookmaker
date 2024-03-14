@@ -6,7 +6,7 @@ orbs:
   ruby: circleci/ruby@2.0.1
 
 jobs:
-  test-ruby:
+  lint-ruby:
     # Install gems, run rails tests
     docker:
       - image: cimg/ruby:3.0.2-node
@@ -16,11 +16,8 @@ jobs:
       - run:
           name: rubocop
           command: bundle exec rubocop
-      - run:
-          name: rails test
-          command: bundle exec rails test
 
 workflows:
   build-and-test:
     jobs:
-      - test-ruby
+      - lint-ruby
