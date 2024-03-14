@@ -18,6 +18,10 @@ gem 'stimulus-rails'
 
 gem 'jbuilder'
 
+gem 'sassc-rails'
+
+gem 'bootstrap'
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mswin mswin64 mingw x64_mingw jruby]
 
@@ -40,7 +44,3 @@ group :test do
   gem 'capybara'
   gem 'selenium-webdriver'
 end
-
-gem "bootstrap"
-gem "sassc-rails"
-
