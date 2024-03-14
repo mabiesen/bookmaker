@@ -1,5 +1,5 @@
 class StudyNotesController < ApplicationController
-  before_action :set_study_note, only: %i[ show edit update destroy ]
+  before_action :set_study_note, only: %i[show edit update destroy]
 
   # GET /study_notes or /study_notes.json
   def index
@@ -7,8 +7,7 @@ class StudyNotesController < ApplicationController
   end
 
   # GET /study_notes/1 or /study_notes/1.json
-  def show
-  end
+  def show; end
 
   # GET /study_notes/new
   def new
@@ -16,8 +15,7 @@ class StudyNotesController < ApplicationController
   end
 
   # GET /study_notes/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /study_notes or /study_notes.json
   def create
@@ -25,7 +23,7 @@ class StudyNotesController < ApplicationController
 
     respond_to do |format|
       if @study_note.save
-        format.html { redirect_to study_note_url(@study_note), notice: "Study note was successfully created." }
+        format.html { redirect_to study_note_url(@study_note), notice: 'Study note was successfully created.' }
         format.json { render :show, status: :created, location: @study_note }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +36,7 @@ class StudyNotesController < ApplicationController
   def update
     respond_to do |format|
       if @study_note.update(study_note_params)
-        format.html { redirect_to study_note_url(@study_note), notice: "Study note was successfully updated." }
+        format.html { redirect_to study_note_url(@study_note), notice: 'Study note was successfully updated.' }
         format.json { render :show, status: :ok, location: @study_note }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,19 +50,20 @@ class StudyNotesController < ApplicationController
     @study_note.destroy!
 
     respond_to do |format|
-      format.html { redirect_to study_notes_url, notice: "Study note was successfully destroyed." }
+      format.html { redirect_to study_notes_url, notice: 'Study note was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_study_note
-      @study_note = StudyNote.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def study_note_params
-      params.require(:study_note).permit(:study_book_id, :page_number, :note_text)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_study_note
+    @study_note = StudyNote.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def study_note_params
+    params.require(:study_note).permit(:study_book_id, :page_number, :note_text)
+  end
 end
