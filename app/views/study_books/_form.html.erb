@@ -11,32 +11,32 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :study_author_ids %>
-    <%= form.collection_select :study_author_ids, StudyAuthor.order(:last_name), :id, :fullname, multiple: true %>
+  <div class="mt-4">
+    <%= form.label :study_author_ids, "Authors", style: "display: block;", class: "form-label" %>
+    <%= form.collection_select :study_author_ids, StudyAuthor.order(:last_name), :id, :fullname, multiple: true, class: "form-control" %>
   </div>
 
-  <div>
-    <%= form.label :title, style: "display: block" %>
-    <%= form.text_field :title %>
+  <div class="mt-4">
+    <%= form.label :title, style: "display: block", class: "form-label" %>
+    <%= form.text_field :title, class: "form-control" %>
   </div>
 
-  <div>
-    <%= form.label :summary, style: "display: block" %>
-    <%= form.text_area :summary %>
+  <div class="mt-4">
+    <%= form.label :summary, style: "display: block", class: "form-label" %>
+    <%= form.text_area :summary, class: "form-control" %>
   </div>
 
-  <div>
-    <%= form.label :number_of_pages, style: "display: block" %>
+  <div class="mt-4">
+    <%= form.label :number_of_pages, style: "display: block", class: "form-label" %>
     <%= form.number_field :number_of_pages %>
   </div>
 
-  <div>
-    <%= form.label :completed, style: "display: block" %>
+  <div class="mt-4">
+    <%= form.label :completed, style: "display: block", class: "form-label" %>
     <%= form.check_box :completed %>
   </div>
 
-  <div>
+  <div class="mt-4">
     <%= form.submit %>
   </div>
 <% end %>
