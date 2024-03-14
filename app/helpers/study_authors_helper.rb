@@ -1,0 +1,2 @@
+module StudyAuthorsHelper
+end
