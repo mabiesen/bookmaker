@@ -1,10 +1,12 @@
-<h1>Editing study book</h1>
+<div class="container mt-4">
+  <h1>Editing study book</h1>
 
-<%= render "form", study_book: @study_book %>
+  <%= render "form", study_book: @study_book %>
 
-<br>
+  <br>
 
-<div>
-  <%= link_to "Show this study book", @study_book %> |
-  <%= link_to "Back to study books", study_books_path %>
+  <div>
+    <%= link_to "Show this study book", @study_book %> |
+    <%= link_to "Back to study books", study_books_path %>
+  </div>
 </div>
