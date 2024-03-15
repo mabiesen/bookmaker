@@ -1,14 +1,39 @@
-<p style="color: green"><%= notice %></p>
+<div class="container mt-4">
+  <p style="color: green"><%= notice %></p>
 
-<h1>Study books</h1>
+  <h1>Books</h1>
 
-<div id="study_books">
-  <% @study_books.each do |study_book| %>
-    <%= render study_book %>
-    <p>
-      <%= link_to "Show this study book", study_book %>
-    </p>
-  <% end %>
+  <div> Count: <%= @study_books.count %></div>
+  <div> Completed Count: <%= @study_books.where(completed: true).count %></div>
+  <div> Completed Page Count: <%= @study_books.where(completed: true).sum(:number_of_pages)%></div>
+  <%= link_to "New book", new_study_book_path %>
+
+  <table id="StudyBooksTable">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Summary</th>
+        <th>Number of Pages</th>
+        <th>Completed?</th>
+        <th>Show This Book</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @study_books.order(:title).each do |book| %>
+      <tr>
+        <td><%= book.title%></td>
+        <td><%= book.study_author_fullnames.join(", ")%></td>
+        <td style='white-space: pre-wrap;'><%= book.summary%></td>
+        <td><%= book.number_of_pages%></td>
+        <td><%= book.completed%></td>
+        <td><%= link_to "Show this book", book %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
 </div>
 
-<%= link_to "New study book", new_study_book_path %>
+<script>
+  new DataTable('#StudyBooksTable');
+</script>

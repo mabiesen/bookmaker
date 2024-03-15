@@ -1,14 +1,33 @@
-<p style="color: green"><%= notice %></p>
+<div class="container mt-4">
+  <p style="color: green"><%= notice %></p>
 
-<h1>Study notes</h1>
+  <h1>Study notes</h1>
 
-<div id="study_notes">
-  <% @study_notes.each do |study_note| %>
-    <%= render study_note %>
-    <p>
-      <%= link_to "Show this study note", study_note %>
-    </p>
-  <% end %>
+  <%= link_to "New study note", new_study_note_path %>
+
+  <table id="StudyNotesTable" class="row-border">
+    <thead>
+      <tr>
+        <th>Book Title</th>
+        <th>Page Number</th>
+        <th>Note Text</th>
+        <th>Show This Note</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @study_notes.each do |note| %>
+      <tr>
+        <td><%= note.study_book.title %></td>
+        <td><%= note.page_number %></td>
+        <td style='white-space: pre-wrap;'><%= note.note_text %></td>
+        <td><%= link_to "Show this study note", note %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+
 </div>
 
-<%= link_to "New study note", new_study_note_path %>
+<script>
+  new DataTable('#StudyNotesTable');
+</script>
