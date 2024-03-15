@@ -1,14 +1,25 @@
-<p style="color: green"><%= notice %></p>
+<div class="container mt-4">
+  <p style="color: green"><%= notice %></p>
 
-<h1>Snippets</h1>
+  <h1>Snippets</h1>
 
-<div id="snippets">
-  <% @snippets.each do |snippet| %>
-    <%= render snippet %>
-    <p>
-      <%= link_to "Show this snippet", snippet %>
-    </p>
-  <% end %>
+  <%= link_to "New snippet", new_snippet_path %>
+
+  <table id="SnippetsTable" class="row-border">
+    <thead>
+      <tr>
+        <th>Note</th>
+      </tr>
+    <tbody>
+    <% @snippets.each do |snippet| %>
+      <tr>
+        <td><%= snippet.note %></td>    
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
 </div>
 
-<%= link_to "New snippet", new_snippet_path %>
+<script>
+  new DataTable('#SnippetsTable')
+</script>

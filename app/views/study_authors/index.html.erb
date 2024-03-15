@@ -1,14 +1,29 @@
-<p style="color: green"><%= notice %></p>
+<div class="container mt-4">
+  <p style="color: green"><%= notice %></p>
 
-<h1>Study authors</h1>
+  <h1>Authors</h1>
 
-<div id="study_authors">
-  <% @study_authors.each do |study_author| %>
-    <%= render study_author %>
-    <p>
-      <%= link_to "Show this study author", study_author %>
-    </p>
-  <% end %>
+  <%= link_to "New study author", new_study_author_path %>
+  <table id="StudyAuthorsTable">
+    <thead>
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Show Author</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @study_authors.order(:last_name).each do |author| %>
+      <tr>
+        <td><%= author.first_name %></td>    
+        <td><%= author.last_name %></td>
+        <td><%= link_to "Show this author", author %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>
 
-<%= link_to "New study author", new_study_author_path %>
+<script>
+  new DataTable('#StudyAuthorsTable');
+</script>
