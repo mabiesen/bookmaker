@@ -16,18 +16,16 @@
         <th>Summary</th>
         <th>Number of Pages</th>
         <th>Completed?</th>
-        <th>Show This Book</th>
       </tr>
     </thead>
     <tbody>
     <% @study_books.order(:title).each do |book| %>
       <tr>
-        <td><%= book.title%></td>
+        <td><%= link_to "#{book.title}", book %></td>
         <td><%= book.study_author_fullnames.join(", ")%></td>
         <td style='white-space: pre-wrap;'><%= book.summary%></td>
         <td><%= book.number_of_pages%></td>
         <td><%= book.completed%></td>
-        <td><%= link_to "Show this book", book %></td>
       </tr>
     <% end %>
     </tbody>
