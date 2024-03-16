@@ -29,5 +29,11 @@
 </div>
 
 <script>
-  new DataTable('#StudyNotesTable');
+  new DataTable('#StudyNotesTable', {
+    layout: {
+      topStart:{
+        buttons: ['print', 'csv']
+      }
+    }
+  });
 </script>

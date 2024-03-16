@@ -21,5 +21,11 @@
 </div>
 
 <script>
-  new DataTable('#SnippetsTable')
+  new DataTable('#SnippetsTable', {
+      layout: {
+          topStart:{
+            buttons: ['print']
+          }
+      }
+  });
 </script>
