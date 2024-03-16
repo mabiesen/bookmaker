@@ -9,15 +9,13 @@
       <tr>
         <th>First Name</th>
         <th>Last Name</th>
-        <th>Show Author</th>
       </tr>
     </thead>
     <tbody>
       <% @study_authors.order(:last_name).each do |author| %>
       <tr>
-        <td><%= author.first_name %></td>    
+        <td><%= link_to "#{author.first_name}", author %></td>    
         <td><%= author.last_name %></td>
-        <td><%= link_to "Show this author", author %></td>
       </tr>
       <% end %>
     </tbody>
