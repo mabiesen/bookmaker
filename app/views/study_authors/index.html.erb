@@ -25,5 +25,11 @@
 </div>
 
 <script>
-  new DataTable('#StudyAuthorsTable');
+  new DataTable('#StudyAuthorsTable', {
+    layout: {
+      topStart:{
+        buttons: ['print', 'csv']
+      }
+    }
+  });
 </script>
