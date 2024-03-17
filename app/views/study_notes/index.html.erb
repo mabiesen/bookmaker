@@ -29,11 +29,18 @@
 </div>
 
 <script>
-  new DataTable('#StudyNotesTable', {
+  var table = new DataTable('#StudyNotesTable', {
     layout: {
       topStart:{
         buttons: ['print', 'csv']
       }
     }
+  });
+
+  table.on('draw', function(){
+    var body = $( table.table().body());
+    console.log("redrawing");
+    body.unhighlight();
+    body.highlight( table.search() );
   });
 </script>
