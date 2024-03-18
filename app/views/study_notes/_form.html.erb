@@ -13,7 +13,7 @@
 
     <div class="mt-4">
       <%= form.label :study_book_id, class: "form-label" %>
-      <%= form.collection_select :study_book_id, StudyBook.order(:title), :id, :title, class: "form-control" %>
+      <%= form.collection_select :study_book_id, StudyBook.order(:title), :id, :title, {selected: [StudyNote.last.study_book_id]}, class: "form-control" %>
     </div>
 
     <div class="mt-4">
