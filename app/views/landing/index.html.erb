@@ -1,0 +1,29 @@
+<div class="container mt-4">
+  <h1 class="mb-3">Home</h1>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h3 class="mt-4 mb-3">Study - store notes etc</h3>
+        <ul class="list-group">
+          <li class="list-group-item">
+            <%= link_to "Authors", study_authors_path%> | <%= link_to "New", new_study_author_path %>
+          </li>
+          <li class="list-group-item">
+            <%= link_to "Books", study_books_path %> | <%= link_to "New", new_study_book_path %>
+          </li>
+          <li class="list-group-item">
+            <%= link_to "Book Notes", study_notes_path %> | <%= link_to "New", new_study_note_path %>
+          </li>
+        </ul>
+      </div>
+      <div class="col">
+        <h3 class="mt-4 mb-3">Create - write portions of a book!</h3>
+        <ul class="list-group">
+          <li class="list-group-item">
+            <%= link_to "Snippets", snippets_path %> | <%= link_to "New", new_snippet_path %>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+</div>
