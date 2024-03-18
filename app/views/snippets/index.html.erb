@@ -9,11 +9,13 @@
     <thead>
       <tr>
         <th>Note</th>
+        <th>Keyword</th>
       </tr>
     <tbody>
     <% @snippets.each do |snippet| %>
       <tr>
         <td><%= snippet.note %></td>    
+        <td><%= snippet.keyword %></td>
       </tr>
     <% end %>
     </tbody>
