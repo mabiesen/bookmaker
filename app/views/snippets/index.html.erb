@@ -24,7 +24,14 @@
   new DataTable('#SnippetsTable', {
       layout: {
           topStart:{
-            buttons: ['print']
+              buttons: [
+                {
+                  extend: 'print',
+                  exportOptions: {
+                    stripHtml: false
+                  }
+                }
+              ]
           }
       }
   });
