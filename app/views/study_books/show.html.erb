@@ -1,10 +1,12 @@
-<p style="color: green"><%= notice %></p>
+<div class="container mt-4">
+  <p style="color: green"><%= notice %></p>
 
-<%= render @study_book %>
+  <%= render @study_book %>
 
-<div>
-  <%= link_to "Edit this study book", edit_study_book_path(@study_book) %> |
-  <%= link_to "Back to study books", study_books_path %>
+  <div>
+    <%= link_to "Edit this study book", edit_study_book_path(@study_book) %> |
+    <%= link_to "Back to study books", study_books_path %>
 
-  <%= button_to "Destroy this study book", @study_book, method: :delete %>
+    <%= button_to "Destroy this study book", @study_book, method: :delete %>
+  </div>
 </div>

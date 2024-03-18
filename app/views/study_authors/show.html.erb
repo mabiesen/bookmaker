@@ -1,10 +1,12 @@
-<p style="color: green"><%= notice %></p>
+<div class="container mt-4">
+  <p style="color: green"><%= notice %></p>
 
-<%= render @study_author %>
+  <%= render @study_author %>
 
-<div>
-  <%= link_to "Edit this study author", edit_study_author_path(@study_author) %> |
-  <%= link_to "Back to study authors", study_authors_path %>
+  <div>
+    <%= link_to "Edit this study author", edit_study_author_path(@study_author) %> |
+    <%= link_to "Back to study authors", study_authors_path %>
 
-  <%= button_to "Destroy this study author", @study_author, method: :delete %>
+    <%= button_to "Destroy this study author", @study_author, method: :delete %>
+  </div>
 </div>
