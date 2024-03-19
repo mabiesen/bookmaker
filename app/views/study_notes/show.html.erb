@@ -5,7 +5,8 @@
 
     <div>
       <%= link_to "Edit this study note", edit_study_note_path(@study_note) %> |
-      <%= link_to "Back to study notes", study_notes_path %>
+      <%= link_to "Back to study notes", study_notes_path, class: "link-success" %> | 
+      <%= link_to "New Note", new_study_note_path, class: "link-body-emphasis" %>
 
       <%= button_to "Destroy this study note", @study_note, method: :delete %>
     </div>
