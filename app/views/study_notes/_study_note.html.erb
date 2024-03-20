@@ -1,12 +1,13 @@
 <div id="<%= dom_id study_note %>">
-  <p>
+  <div>
     <strong>Page number:</strong>
-    <%= study_note.page_number %>
-  </p>
+    <p><%= study_note.page_number %></p>
+  </div>
 
-  <p style='white-space: pre-wrap;'>
+  <div>
     <strong>Note text:</strong>
-    <%= study_note.note_text %>
-  </p>
+    <p style='white-space: pre-wrap;'><%= study_note.note_text %></p>
+  </div>
 
 </div>
+
