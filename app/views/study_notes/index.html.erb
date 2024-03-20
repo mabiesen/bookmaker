@@ -4,6 +4,15 @@
   <h1>Study notes</h1>
 
   <%= link_to "New study note", new_study_note_path %>
+  <hr/>
+  <% books_with_notes = StudyNote.all.map(&:study_book).uniq! %>
+  <select>
+    <option class="fw-bold">Number of notes created: <%=StudyNote.count %> </option>
+    <% books_with_notes.each do |book| %>
+      <option><%= book.title %>: <%= StudyNote.where(study_book_id: book.id).count %></option>
+    <% end %>
+  </select>
+  <hr/>
 
   <table id="StudyNotesTable" class="row-border">
     <thead>
