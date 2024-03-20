@@ -41,7 +41,20 @@
   var table = new DataTable('#StudyNotesTable', {
     layout: {
       topStart:{
-        buttons: ['print', 'csv']
+          buttons: [
+              {
+                  extend: 'print',
+                  exportOptions: {
+                      columns: [0,1,2]
+                  }
+              },
+              {
+                  extend: 'csv',
+                  exportOptions: {
+                      columns: [0,1,2]
+                  }
+              }
+          ]
       }
     }
   });
