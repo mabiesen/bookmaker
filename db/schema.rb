@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_18_192658) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_25_025548) do
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
     t.text "body"
@@ -47,6 +47,16 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_18_192658) do
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  end
+
+  create_table "bible_verses", force: :cascade do |t|
+    t.string "book"
+    t.integer "book_number"
+    t.integer "chapter"
+    t.integer "verse"
+    t.text "verse_text"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "snippets", force: :cascade do |t|
