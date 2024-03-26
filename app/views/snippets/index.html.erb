@@ -10,12 +10,14 @@
       <tr>
         <th>Note</th>
         <th>Keyword</th>
+        <th>Show</th>
       </tr>
     <tbody>
     <% @snippets.each do |snippet| %>
       <tr>
         <td><%= snippet.note %></td>    
         <td><%= snippet.keyword %></td>
+        <td><%= link_to "Show snippet", snippet %></td>
       </tr>
     <% end %>
     </tbody>
