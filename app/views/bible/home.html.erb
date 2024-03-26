@@ -1,0 +1,36 @@
+<div class="container mt-4">
+  <p style="color: green"><%= notice %></p>
+
+  <h1>Bible</h1>
+
+  <table id="BibleVersesTable">
+    <thead>
+      <tr>
+        <th>Book</th>
+        <th>Chapter</th>
+        <th>Verse</th>
+        <th>Verse Text</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @bible_verses.each do |bv| %>
+      <tr>
+        <td><%= bv.book%></td>
+        <td><%= bv.chapter %></td>
+        <td><%= bv.verse %></td>
+        <td><%= bv.verse_text %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<script>
+  new DataTable('#BibleVersesTable', {
+    layout: {
+      topStart:{
+        buttons: ['print', 'csv']
+      }
+    }
+  });
+</script>
