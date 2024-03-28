@@ -1,16 +1,16 @@
-<div class="container mt-4">
+<div sytle="font-size: 1.5em;" class="container mt-4">
     <p style="color: green"><%= notice %></p>
 
     <%= render @study_note %>
 
-    <div style="font-size: 1.5em;">
+    <div>
       <p>
         <%= link_to "Edit this study note", edit_study_note_path(@study_note) %> |
         <%= link_to "Back to study notes", study_notes_path, class: "link-success" %> |
         <%= link_to "New Note", new_study_note_path, class: "link-body-emphasis" %>
 
       </p>
-      <%= button_to "Destroy this study note", @study_note, method: :delete %>
+      <%= button_to "Destroy this study note", @study_note, method: :delete, class: "btn btn-danger" %>
     </div>
 </div>
 
