@@ -29,7 +29,7 @@
         <td><%= note.study_book.title %></td>
         <td><%= note.page_number %></td>
         <td style='white-space: pre-wrap;'><%= note.note_text %></td>
-        <td><%= link_to "Show this study note", note %></td>
+        <td><%= link_to note.id, note %></td>
       </tr>
     <% end %>
     </tbody>
