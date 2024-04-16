@@ -1,5 +1,5 @@
 class StudyBook < ApplicationRecord
-  has_many :notes
+  has_many :study_notes
   has_and_belongs_to_many :study_authors
   validates :title, presence: true
   validates :number_of_pages, presence: true
