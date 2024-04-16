@@ -3,10 +3,14 @@
 
   <%= render @snippet %>
 
-  <div>
-    <%= link_to "Edit this snippet", edit_snippet_path(@snippet) %> |
-    <%= link_to "Back to snippets", snippets_path %>
+  <hr>
 
-    <%= button_to "Destroy this snippet", @snippet, method: :delete %>
+  <div>
+    <p>
+      <%= link_to "Edit this snippet", edit_snippet_path(@snippet) %> |
+      <%= link_to "Back to snippets", snippets_path, class: "link-success" %> | 
+      <%= link_to "New Snippet", new_snippet_path, class: "link-body-emphasis" %>
+    </p>
+    <%= button_to "Destroy this snippet", @snippet, method: :delete, class: "btn btn-danger" %>
   </div>
 </div>

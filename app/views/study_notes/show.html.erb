@@ -3,6 +3,8 @@
 
     <%= render @study_note %>
 
+    <hr>
+
     <div>
       <p>
         <%= link_to "Edit this study note", edit_study_note_path(@study_note) %> |
@@ -12,5 +14,59 @@
       </p>
       <%= button_to "Destroy this study note", @study_note, method: :delete, class: "btn btn-danger" %>
     </div>
+
+  <h1 style="padding-top: 50px;"><u><%= @study_note.study_book.title.titleize %></u></h1>
+  <h3 style="padding-bottom: 20px;">By <%= @study_note.study_book.study_author_fullnames.join(" & ") %> </h3>
+
+  <table id="StudyNotesShowTable" class="row-border">
+    <thead>
+      <tr>
+        <th>Book Title</th>
+        <th>Page Number</th>
+        <th>Note Text</th>
+        <th>Show This Note</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @study_note.study_book.study_notes.each do |note| %>
+      <tr>
+        <td><%= note.study_book.title %></td>
+        <td><%= note.page_number %></td>
+        <td style='white-space: pre-wrap;'><%= note.note_text %></td>
+        <td><%= link_to note.id, note %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
 </div>
 
+
+<script>
+  var table = new DataTable('#StudyNotesShowTable', {
+    layout: {
+      topStart:{
+          buttons: [
+              {
+                  extend: 'print',
+                  exportOptions: {
+                      columns: [0,1,2]
+                  }
+              },
+              {
+                  extend: 'csv',
+                  exportOptions: {
+                      columns: [0,1,2]
+                  }
+              }
+          ]
+      }
+    }
+  });
+
+  table.on('draw', function(){
+    var body = $( table.table().body());
+    console.log("redrawing");
+    body.unhighlight();
+    body.highlight( table.search() );
+  });
+</script>
