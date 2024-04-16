@@ -12,7 +12,7 @@
         <%= link_to "New Note", new_study_note_path, class: "link-body-emphasis" %>
 
       </p>
-      <%= button_to "Destroy this study note", @study_note, method: :delete, class: "btn btn-danger" %>
+      <%= button_to "Destroy this study note", @study_note, method: :delete, class: "btn btn-danger", form: { data: { turbo_confirm: "Are you sure?" }} %>
     </div>
 
   <h1 style="padding-top: 50px;"><u><%= @study_note.study_book.title.titleize %></u></h1>

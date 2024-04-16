@@ -11,6 +11,6 @@
       <%= link_to "Back to snippets", snippets_path, class: "link-success" %> | 
       <%= link_to "New Snippet", new_snippet_path, class: "link-body-emphasis" %>
     </p>
-    <%= button_to "Destroy this snippet", @snippet, method: :delete, class: "btn btn-danger" %>
+    <%= button_to "Destroy this snippet", @snippet, method: :delete, class: "btn btn-danger", form: { data: { turbo_confirm: "Are you sure?" }}%>
   </div>
 </div>
