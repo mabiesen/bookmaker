@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_25_025548) do
+ActiveRecord::Schema[7.1].define(version: 2024_10_16_142346) do
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
     t.text "body"
@@ -97,7 +97,16 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_25_025548) do
     t.index ["study_book_id"], name: "index_study_notes_on_study_book_id"
   end
 
+  create_table "verse_comments", force: :cascade do |t|
+    t.integer "bible_verse_id", null: false
+    t.text "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["bible_verse_id"], name: "index_verse_comments_on_bible_verse_id"
+  end
+
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "study_notes", "study_books"
+  add_foreign_key "verse_comments", "bible_verses"
 end
