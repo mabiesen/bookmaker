@@ -12,21 +12,16 @@
         <th>Verse Text</th>
       </tr>
     </thead>
-    <tbody>
-      <% @bible_verses.each do |bv| %>
-      <tr>
-        <td><%= bv.book%></td>
-        <td><%= bv.chapter %></td>
-        <td><%= bv.verse %></td>
-        <td><%= bv.verse_text %></td>
-      </tr>
-      <% end %>
-    </tbody>
   </table>
 </div>
 
 <script>
   new DataTable('#BibleVersesTable', {
+    ajax: {
+      url: '/bible/verses.json',
+      dataSrc: ''
+    },
+      columns: [{data: 'book'},{data: 'chapter'},{data: 'verse'},{data: 'verse_text'}],
     ordering: false,
     layout: {
       topStart:{
