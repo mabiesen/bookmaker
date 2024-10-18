@@ -1,0 +1,27 @@
+  <%= form_with(model: verse_comment) do |form| %>
+    <% if verse_comment.errors.any? %>
+      <div style="color: red">
+        <h2><%= pluralize(verse_comment.errors.count, "error") %> prohibited this verse_comment from being saved:</h2>
+
+        <ul>
+          <% verse_comment.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="mt-4">
+      <%= form.label :bible_verse_id, class: "form-label" %>
+      <%= form.collection_select :bible_verse_id, BibleVerse.order(:id), :id, :full_id, class: "form-control" %>
+    </div>
+
+    <div class="mt-4">
+      <%= form.label :comment, style: "display: block", class: "form-label" %>
+      <%= form.text_area :comment, class: "form-control", style: "min-height: 300px;" %>
+    </div>
+
+    <div class="mt-4">
+      <%= form.submit %>
+    </div>
+  <% end %>
