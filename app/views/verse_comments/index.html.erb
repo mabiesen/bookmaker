@@ -1,0 +1,58 @@
+<div class="container mt-4">
+  <p style="color: green"><%= notice %></p>
+
+  <h1>Verse comments</h1>
+
+  <%= link_to "New verse comment", new_verse_comment_path %>
+  <hr/>
+
+  <table id="VerseCommentsTable" class="row-border">
+    <thead>
+      <tr>
+        <th>Verse Identification</th>
+        <th>Comment</th>
+        <th>Show This Comment</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @verse_comments.each do |vc| %>
+      <tr>
+        <td><%= vc.bible_verse.full_id %></td>
+        <td style='white-space: pre-wrap;'><%= vc.comment %></td>
+        <td><%= link_to vc.id, vc %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+
+</div>
+
+<script>
+  var table = new DataTable('#VerseCommentsTable', {
+    layout: {
+      topStart:{
+          buttons: [
+              {
+                  extend: 'print',
+                  exportOptions: {
+                      columns: [0,1,2]
+                  }
+              },
+              {
+                  extend: 'csv',
+                  exportOptions: {
+                      columns: [0,1,2]
+                  }
+              }
+          ]
+      }
+    }
+  });
+
+  table.on('draw', function(){
+    var body = $( table.table().body());
+    console.log("redrawing");
+    body.unhighlight();
+    body.highlight( table.search() );
+  });
+</script>

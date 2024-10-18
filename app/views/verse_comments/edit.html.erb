@@ -1,0 +1,12 @@
+<div class="container mt-4">
+  <h1>Editing verse comment</h1>
+
+  <%= render "form", verse_comment: @verse_comment %>
+
+  <br>
+
+  <div>
+    <%= link_to "Show this study note", @verse_comment %> |
+    <%= link_to "Back to study notes", verse_comments_path %>
+  </div>
+</div>
