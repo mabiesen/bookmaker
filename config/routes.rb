@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get 'bible/home'
+  get 'bible/verses'
   resources :study_notes
   resources :study_books
   resources :study_authors
