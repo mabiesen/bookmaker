@@ -11,5 +11,4 @@ class BibleController < ApplicationController
   def verse_summary
     @bible_verse = BibleVerse.find(params[:id])
   end
-
 end
