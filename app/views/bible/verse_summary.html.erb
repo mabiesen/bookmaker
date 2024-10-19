@@ -24,7 +24,7 @@
         <tbody>
           <% @bible_verse.context_array.each do |bv| %>
             <tr>
-              <td><%= bv.full_id %></td>
+              <td><%= link_to "#{bv.full_id}", "/bible/verse_summary/#{bv.id}" %></td>
               <% if bv.id == @bible_verse.id %>
                 <td style='color: red;'><%= bv.verse_text %></td>
               <% else %>
