@@ -5,7 +5,7 @@
     <ol style="list-style-type: none;">
       <% verse_collection.bible_verses.each do |bv| %>
         <li>
-          <%= link_to "#{bv.full_id}", "bible/verse_summary/#{bv.id}" %>
+          <%= link_to "#{bv.full_id}", "/bible/verse_summary/#{bv.id}" %>
           <%= bv.verse_text %>
         </li>
       <% end %>
