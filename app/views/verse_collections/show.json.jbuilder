@@ -1,1 +1,1 @@
-json.partial! "verse_collections/verse_collection", verse_collection: @verse_collection
+json.partial! 'verse_collections/verse_collection', verse_collection: @verse_collection

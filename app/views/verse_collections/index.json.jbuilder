@@ -1,1 +1,1 @@
-json.array! @verse_collections, partial: "verse_collections/verse_collection", as: :verse_collection
+json.array! @verse_collections, partial: 'verse_collections/verse_collection', as: :verse_collection
