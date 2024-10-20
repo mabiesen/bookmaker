@@ -1,5 +1,6 @@
 class BibleVerse < ApplicationRecord
   has_many :verse_comments
+  has_and_belongs_to_many :verse_collections
 
   def full_id
     "#{book} - #{chapter}:#{verse}"

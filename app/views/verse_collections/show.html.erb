@@ -1,0 +1,12 @@
+<div class="container mt-4">
+  <p style="color: green"><%= notice %></p>
+
+  <%= render @verse_collection %>
+
+  <div>
+    <%= link_to "Edit this verse collection", edit_verse_collection_path(@verse_collection) %> |
+    <%= link_to "Back to verse collections", verse_collections_path %>
+
+    <%= button_to "Destroy this verse collection", @verse_collection, method: :delete, class: "btn btn-danger", form: { data: { turbo_confirm: "Are you sure?" }} %>
+  </div>
+</div>
