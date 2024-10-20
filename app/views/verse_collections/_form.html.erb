@@ -11,9 +11,14 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :comment, style: "display: block" %>
-    <%= form.text_field :comment %>
+  <div class="mt-4">
+    <%= form.label :bible_verse_ids, "BibleVerses", style: "display: block;", class: "form-label" %>
+    <%= form.collection_select :bible_verse_ids, BibleVerse.all, :id, :full_id, multiple: true, class: "form-control" %>
+  </div>
+
+  <div class="mt-4">
+    <%= form.label :comment, style: "display: block", class: "form-label" %>
+    <%= form.text_field :comment, class: "form-control" %>
   </div>
 
   <div>

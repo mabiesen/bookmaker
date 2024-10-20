@@ -22,6 +22,12 @@ class VerseCollectionsController < ApplicationController
   # POST /verse_collections or /verse_collections.json
   def create
     @verse_collection = VerseCollection.new(verse_collection_params)
+    verses = BibleVerse.find(verse_collection_params[:bible_verse_ids].reject(&:empty?))
+    verses.each do |verse|
+      unless @verse_collection.bible_verse_ids.include? verse.id
+        @verse_collection.bible_verses << verse
+      end
+    end
 
     respond_to do |format|
       if @verse_collection.save
@@ -65,6 +71,6 @@ class VerseCollectionsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def verse_collection_params
-      params.require(:verse_collection).permit(:comment)
+      params.require(:verse_collection).permit(:comment, bible_verse_ids: [])
     end
 end
