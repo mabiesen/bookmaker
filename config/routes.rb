@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :verse_collections
   # static resources/summaries
   get 'bible/home'
   get 'bible/verses'

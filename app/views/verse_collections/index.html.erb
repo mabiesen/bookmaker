@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Verse collections</h1>
+
+<div id="verse_collections">
+  <% @verse_collections.each do |verse_collection| %>
+    <%= render verse_collection %>
+    <p>
+      <%= link_to "Show this verse collection", verse_collection %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New verse collection", new_verse_collection_path %>
