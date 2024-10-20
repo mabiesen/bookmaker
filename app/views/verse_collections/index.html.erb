@@ -1,14 +1,44 @@
-<p style="color: green"><%= notice %></p>
+<div class="container mt-4">
+  <p style="color: green"><%= notice %></p>
 
-<h1>Verse collections</h1>
+  <h1>Verse collections</h1>
 
-<div id="verse_collections">
-  <% @verse_collections.each do |verse_collection| %>
-    <%= render verse_collection %>
-    <p>
-      <%= link_to "Show this verse collection", verse_collection %>
-    </p>
-  <% end %>
+  <%= link_to "New Verse Collection", new_verse_collection_path %>
+  <table id="VerseCollectionsTable">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Verses</th>
+        <th>Comment</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @verse_collections.each do |vc| %>
+        <tr>
+          <td><%= link_to "#{vc.id}", vc %></td>
+          <td>
+            <ol style="list-style-type: none;">
+              <% vc.bible_verses.each do |bv| %>
+                <li>
+                  <%= link_to "#{bv.full_id}", "bible/verse_summary/#{bv.id}" %>
+                  <%= bv.verse_text %>
+                </li>
+              <% end %>
+            </ol>
+          </td>
+          <td><%= vc.comment %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>
 
-<%= link_to "New verse collection", new_verse_collection_path %>
+<script>
+  new DataTable('#VerseCollectionsTable', {
+    layout: {
+      topStart:{
+        buttons: ['print', 'csv']
+      }
+    }
+  });
+</script>
