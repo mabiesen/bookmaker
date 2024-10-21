@@ -11,9 +11,23 @@
     </div>
   <% end %>
 
-  <div class="mt-4">
-    <%= form.label :bible_verse_ids, "BibleVerses", style: "display: block;", class: "form-label" %>
-    <%= form.collection_select :bible_verse_ids, BibleVerse.all, :id, :full_id, multiple: true, class: "form-control" %>
+  <div class= "mt-4 container">
+    <div class="row">
+      <div class="col">
+        <%= form.label :bible_verse_ids, "BibleVerses", style: "display: block;", class: "form-label" %>
+        <%= form.collection_select :bible_verse_ids, BibleVerse.all, :id, :full_id, multiple: true, class: "form-control" %>
+      </div>
+      <div class="col">
+        <ol style="list-style-type: none;">
+        <% verse_collection.bible_verses.order(:id).each do |bv| %>
+          <li>
+            <%= link_to "#{bv.full_id}", "bible/verse_summary/#{bv.id}" %>
+            <%= bv.verse_text %>
+          </li>
+        <% end %>
+        </ol>
+      </div>
+    </div>
   </div>
 
   <div class="mt-4">
