@@ -61,6 +61,32 @@
     </div>
     <div class='col'>
       <h3>Verse Collections</h3>
+        <table id="VerseCollectionsTable">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th style='min-width: 200px;'>Verses</th>
+        <th>Comment</th>
+      </tr>
+    </thead>
+      <tbody>
+        <% @bible_verse.verse_collections.each do |vc| %>
+          <tr>
+            <td><%= link_to "#{vc.id}", vc %></td>
+            <td>
+              <ol style="list-style-type: none;">
+                <% vc.bible_verses.each do |bv| %>
+                  <li>
+                    <%= link_to "#{bv.full_id}", "#{bv.id}", target: :_blank %>
+                  </li>
+                <% end %>
+              </ol>
+            </td>
+            <td style='white-space: pre-wrap;'><%= vc.comment %></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>
@@ -81,4 +107,10 @@
       paging: false,
       searching: false
     });
+
+  new DataTable('#VerseCollectionsTable', {
+      ordering: false,
+      paging: false,
+      searching: false
+  });
 </script>
