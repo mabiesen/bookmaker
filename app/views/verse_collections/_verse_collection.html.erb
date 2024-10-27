@@ -3,7 +3,7 @@
   <div>
     <strong>Verses</strong>
     <ol style="list-style-type: none;">
-      <% verse_collection.bible_verses.each do |bv| %>
+      <% verse_collection.bible_verses.order(:id).each do |bv| %>
         <li>
           <%= link_to "#{bv.full_id}", "/bible/verse_summary/#{bv.id}", target: :_blank %>
           <%= bv.verse_text %>
